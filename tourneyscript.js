@@ -5,7 +5,7 @@ document.getElementById('registration-form').addEventListener('submit', function
   const email = document.getElementById('email').value;
 
   // Send the form data to the server
-  fetch('https://publicmowing.site.blueastroid.com/mncares/api/register', {
+  fetch('https://publicmowing.site.blueastroid.com/api/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ document.getElementById('registration-form').addEventListener('submit', function
 });
 
 function generateBracket() {
-  fetch('https://publicmowing.site.blueastroid.com/mncares/api/participants')
+  fetch('https://publicmowing.site.blueastroid.com/api/participants')
     .then(response => response.json())
     .then(data => {
       const participants = data.participants;

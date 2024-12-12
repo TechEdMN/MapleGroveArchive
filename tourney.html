@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournament Software</title>
+  <link rel="stylesheet" href="tourneystyles.css">
+</head>
+<body>
+  <header>
+    <h1>Tournament Registration</h1>
+  </header>
+
+  <main>
+    <section id="registration">
+      <h2>Join the Tournament</h2>
+      <form id="registration-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Join</button>
+      </form>
+    </section>
+
+    <section id="bracket">
+      <h2>Tournament Bracket</h2>
+      <div id="bracket-container"></div>
+    </section>
+  </main>
+
+  <script src="tourneyscripts.js"></script>
+</body>
+</html>

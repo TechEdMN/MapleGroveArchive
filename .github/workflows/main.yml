@@ -1,0 +1,33 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches:
+      - main  # Trigger the action on push to the main branch
+    paths:
+      - '**/*'  # Deploy all files (you can customize this pattern)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      # Checkout the repository's code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up AWS CLI
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}  # Use your GitHub secret for AWS access key
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  # Use your GitHub secret for AWS secret key
+          aws-region: 'us-east-1'  # You can specify the region of your S3 bucket
+
+      # Deploy updated files to S3
+      - name: Deploy to S3
+        run: |
+          # Loop through all files in the repo and upload them individually
+          find . -type f ! -path './.git/*' | while read file; do
+            aws s3 cp "$file" s3://w3storagemaplegrove/"$file" --acl public-read --exact-timestamps
+          done

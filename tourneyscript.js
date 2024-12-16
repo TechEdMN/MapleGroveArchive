@@ -5,7 +5,7 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   const email = document.getElementById('email').value;
 
   try {
-    const response = await fetch('https://publicmowing.site.blueastroid.com/api/register', {
+    const response = await fetch('https://publicmowing.site.blueastroid.com/mncares/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

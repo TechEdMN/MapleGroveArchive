@@ -27,7 +27,7 @@ jobs:
       - name: Deploy updated files to S3
         run: |
           # Get a list of changed files in the last commit
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD)
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- )
           
           # If any files were changed, upload them to S3
           for FILE in $CHANGED_FILES; do

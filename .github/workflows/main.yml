@@ -26,8 +26,14 @@ jobs:
 
       - name: Deploy updated files to S3
         run: |
-          # Get a list of changed files in the last commit
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- )
+          # Check if there are previous commits and get the list of changed files
+          if git rev-parse --verify HEAD >/dev/null 2>&1; then
+            # If a previous commit exists, get the changed files since the last commit
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD --)
+          else
+            # If no previous commit, consider all files as new files
+            CHANGED_FILES=$(git ls-files)
+          fi
           
           # If any files were changed, upload them to S3
           for FILE in $CHANGED_FILES; do

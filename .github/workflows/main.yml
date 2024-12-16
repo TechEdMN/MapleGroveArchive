@@ -29,5 +29,5 @@ jobs:
         run: |
           # Loop through all files in the repo and upload them individually
           find . -type f ! -path './.git/*' | while read file; do
-            aws s3 cp "$file" s3://w3storagemaplegrove/"$file" --acl public-read --exact-timestamps
+            aws s3 cp "$file" s3://w3storagemaplegrove/"$file" --acl public-read
           done

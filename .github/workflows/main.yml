@@ -26,7 +26,7 @@ jobs:
 
       - name: Deploy updated files to S3
         run: |
-          # Check if there are previous commits and get the list of changed files
+          # Check if the repository has previous commits
           if git rev-parse --verify HEAD >/dev/null 2>&1; then
             # If a previous commit exists, get the changed files since the last commit
             CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD --)
@@ -40,6 +40,6 @@ jobs:
             # Make sure we're not trying to upload files from .git directory or other ignored files
             if [[ "$FILE" != .git/* ]]; then
               echo "Deploying $FILE to S3"
-              aws s3 cp "$FILE" s3://w3storagemaplegrove/"$FILE" --acl public-read
+              aws s3 cp "$FILE" s3://w3storagemaplegrove/"$FILE" --acl public-read --exact-timestamps
             fi
           done

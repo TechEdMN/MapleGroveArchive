@@ -42,6 +42,6 @@ jobs:
             # Make sure we're not trying to upload files from .git directory or other ignored files
             if [[ "$FILE" != .git/* ]]; then
               echo "Deploying $FILE to S3"
-              aws s3 cp "$FILE" s3://w3storagemaplegrove/"$FILE" --acl public-read --exact-timestamps
+              aws s3 cp "$FILE" s3://w3storagemaplegrove/"$FILE" --acl public-read
             fi
           done

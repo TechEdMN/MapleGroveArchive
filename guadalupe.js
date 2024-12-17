@@ -32,6 +32,16 @@ function openSecureBrowser(url) {
                 <style>
                     /* Add styles for the overlay if email is found */
         /* Overlay styling */
+        body {
+    margin: 0;            /* Reset default margin */
+}
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
         #emailOverlay {
             display: none;
             position: fixed;

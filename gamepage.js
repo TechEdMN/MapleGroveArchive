@@ -13,7 +13,6 @@ function openSecureBrowser(url) {
             return;
         }
     }
-
     // Open a new window with about:blank and write HTML into it
     const newWindow = window.open('about:blank', '_blank');
     newWindow.document.write(`

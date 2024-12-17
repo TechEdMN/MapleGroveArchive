@@ -18,7 +18,7 @@ function openSecureBrowser(url) {
     newWindow.document.write(`
         <html>
             <head>
-                <link rel="stylesheet" href="https://cdn.statically.io/gh/FoundationINCCorporateTeam/mn-games-temploary/main/gamepagestyles.css">
+                <link rel="stylesheet" href="dsg.css?wyebgn">
                 <title>MN Games Secure Browser</title>
                 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YMTTSH9XD3"></script>
